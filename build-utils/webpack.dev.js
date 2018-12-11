@@ -13,10 +13,11 @@ const config = {
   output: {
     filename: '[name].[hash].js'
   },
-  devtool: 'inline-source-map',
+  devtool: 'cheap-eval-source-map',
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: `${commonPaths.projectRoot}/public`,
+    clientLogLevel: 'warning',
     host: 'localhost',
     port: port,
     historyApiFallback: true,

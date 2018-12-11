@@ -1,3 +1,6 @@
+// import { setLogLevel } from '../node_modules/webpack/hot/log';
+// setLogLevel('none');
+
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,7 +10,7 @@ import configureStore from './store/configureStore';
 
 import App from './components/App';
 
-import './utils/hmrUtils';
+// import './utils/hmrUtils';
 import './index.scss';
 import './styles/icons/style.css';
 

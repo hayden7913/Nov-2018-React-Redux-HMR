@@ -11,6 +11,7 @@ class Home extends Component {
 
   render() {
     const { dispatch, value } = this.props;
+
     return (
       <div>
         <div className="icon-home"></div>

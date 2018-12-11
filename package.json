@@ -6,7 +6,7 @@
   "author": "Esau Silva",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server || true",
+    "start": "webpack-dev-server  || true",
     "build": "webpack --env.NODE_ENV=production || true",
     "lint": "eslint --ext .js ./src  || true",
     "lint:fix": "eslint --fix --ext .js ./src || true",

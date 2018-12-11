@@ -1,11 +1,15 @@
 const _log = console.log;
 
+const isString = args => typeof args === 'string';
+const isFromHMR = args => (
+  isString(args)
+    ? !(args.indexOf('[HMR]') === -1)
+    : false
+);
+
 console.log = function() {
   const args = arguments[0];
-  const isString = typeof args === 'string';
-  const fromHMR = args.indexOf('[HMR]') === -1;
-
-  if (isString && fromHMR) {
+  if (!isFromHMR(args)) {
     return _log.apply(console, arguments);
   }
 };
