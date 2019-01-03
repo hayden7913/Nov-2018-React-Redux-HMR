@@ -9,17 +9,16 @@ export function* incrementAsync() {
 }
 
 const requestTodos = () => {
-  fetch('https://jsonplaceholder.typicode.com/todos/1')
+  return fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response => response.json())
     .then(json => {
-      console.log('turn ');
-      console.log(json);
       return json;
     });
 };
 
 export function* fetchTodos() {
   const todos = yield call(requestTodos);
+  console.log(todos);
 }
 
 export function* watchIncrementAsync() {

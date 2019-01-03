@@ -17,7 +17,7 @@ const config = {
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: `${commonPaths.projectRoot}/public`,
-    clientLogLevel: 'warning',
+    clientLogLevel: 'error',
     host: 'localhost',
     port: port,
     historyApiFallback: true,
