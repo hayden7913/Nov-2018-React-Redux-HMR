@@ -8,17 +8,20 @@ export function* incrementAsync() {
   yield put({ type: 'INCREMENT' });
 }
 
-const requestTodos = () => {
-  return fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then(response => response.json())
-    .then(json => {
-      return json;
-    });
+export const requestTodos = async() => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const todos = await response.json();
+  return todos.slice(0, 10);
 };
 
 export function* fetchTodos() {
   const todos = yield call(requestTodos);
-  console.log(todos);
+  yield put({
+    type: 'FETCH_TODOS_SUCCESS',
+    todos,
+  });
+
+  return todos;
 }
 
 export function* watchIncrementAsync() {

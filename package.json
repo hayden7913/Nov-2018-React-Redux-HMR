@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -53,6 +54,7 @@
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.16.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "fetch-mock": "^7.3.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
@@ -70,8 +72,5 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
-  },
-  "jest": {
-    "setTimeout": 10000
   }
 }
