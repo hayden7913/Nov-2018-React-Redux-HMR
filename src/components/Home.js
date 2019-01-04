@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from './Counter';
-import MainSection from './MainSection';
+import Todos from './Todos';
 
-class Home extends Component {
+export class Home extends Component {
   state = {
     incremented: false,
   }
@@ -20,6 +20,7 @@ class Home extends Component {
 
   render() {
     const { dispatch, value, todos } = this.props;
+    console.log(todos);
 
     return (
       <div>
@@ -28,13 +29,22 @@ class Home extends Component {
         <div className="icon-home"></div>
         <div className="icon-home"></div>
         <img src="images/cat.jpg" />
-        <MainSection todos={todos} />
+
+        <Todos todos={todos} />
         <Counter
           value={value}
-          onIncrement={() =>{ dispatch({ type: 'INCREMENT' }); this.increment(); }}
+          onIncrement={() => { dispatch({ type: 'INCREMENT' }); }}
           onDecrement={() => dispatch({ type: 'DECREMENT' })}
           onIncrementAsync={() => dispatch({ type: 'INCREMENT_ASYNC' })}
         />,
+        <div>
+          <div>
+            <button className="button-increment" onClick={this.increment}>Click!</button>
+          </div>
+          {
+            this.state.incremented ? <div>Incremented!</div> : null
+          }
+        </div>
       </div>
     );
   }
@@ -42,7 +52,7 @@ class Home extends Component {
 
 const mapState = state => ({
   value: state.counter,
-  todos: state.todos.map((todo) => ({ text: todo.title, id: todo.id })),
+  todos: state.todos.map((todo) => ({ text: todo.title || todo.text, id: todo.id })),
 });
 
 export default connect(mapState)(Home);

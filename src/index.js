@@ -12,7 +12,7 @@ import './styles/icons/style.css';
 
 const store = configureStore();
 
-const render = Component =>
+const render = Component => (
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
@@ -20,7 +20,8 @@ const render = Component =>
       </Provider>
     </AppContainer>,
     document.getElementById('root')
-  );
+  )
+);
 
 render(App);
 if (module.hot) module.hot.accept('./components/App', () => render(App));
